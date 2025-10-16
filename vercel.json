@@ -1,0 +1,10 @@
+{
+  "project": "portfolio",
+  "framework": "astro",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "outputDirectory": ".vercel/output",
+  "env": {
+    "PUBLIC_API_BASE": "https://YOUR-RENDER-API-URL"
+  }
+}
