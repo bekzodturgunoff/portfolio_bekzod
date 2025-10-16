@@ -1,5 +1,5 @@
 /* empty css                                 */
-import { c as createComponent, r as renderHead, a as renderSlot, b as renderTemplate, m as maybeRenderHead, e as addAttribute, f as createAstro, g as renderComponent } from '../chunks/astro/server_CdUeg0b0.mjs';
+import { c as createComponent, r as renderHead, a as renderSlot, b as renderTemplate, e as createAstro, m as maybeRenderHead, s as spreadAttributes, f as renderComponent, g as addAttribute } from '../chunks/astro/server_CmEZ7lM_.mjs';
 import 'kleur/colors';
 import 'clsx';
 export { renderers } from '../renderers.mjs';
@@ -8,6 +8,40 @@ const $$Base = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`<html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Modern, fast portfolio"><meta name="color-scheme" content="light dark"><link rel="icon" href="/favicon.ico"><title>Portfolio</title>${renderHead()}</head> <body class="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100"> ${renderSlot($$result, $$slots["default"])}  </body></html>`;
 }, "/Users/bekzod/Documents/code/portfolio/modern_portfolio/front_end/src/layouts/Base.astro", void 0);
 
+const $$Astro$5 = createAstro();
+const $$ = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$5, $$props, $$slots);
+  Astro2.self = $$;
+  const size = Astro2.props.size;
+  delete Astro2.props.size;
+  const props = Object.assign({
+    "xmlns": "http://www.w3.org/2000/svg",
+    "stroke-width": 2,
+    "width": size ?? 24,
+    "height": size ?? 24,
+    "stroke": "currentColor",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round",
+    "fill": "none",
+    "viewBox": "0 0 24 24"
+  }, Astro2.props);
+  return renderTemplate`${maybeRenderHead()}<svg${spreadAttributes(props)}> ${renderSlot($$result, $$slots["default"])} </svg>`;
+}, "/Users/bekzod/Documents/code/portfolio/modern_portfolio/front_end/node_modules/lucide-astro/dist/.Layout.astro", void 0);
+
+const $$Astro$4 = createAstro();
+const $$Moon = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$4, $$props, $$slots);
+  Astro2.self = $$Moon;
+  return renderTemplate`${renderComponent($$result, "Layout", $$, { ...Astro2.props }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> ` })}`;
+}, "/Users/bekzod/Documents/code/portfolio/modern_portfolio/front_end/node_modules/lucide-astro/dist/Moon.astro", void 0);
+
+const $$Astro$3 = createAstro();
+const $$Sun = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
+  Astro2.self = $$Sun;
+  return renderTemplate`${renderComponent($$result, "Layout", $$, { ...Astro2.props }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> ` })}`;
+}, "/Users/bekzod/Documents/code/portfolio/modern_portfolio/front_end/node_modules/lucide-astro/dist/Sun.astro", void 0);
+
 const $$Nav = createComponent(($$result, $$props, $$slots) => {
   const links = [
     { href: "#about", label: "About" },
@@ -15,7 +49,7 @@ const $$Nav = createComponent(($$result, $$props, $$slots) => {
     { href: "#work", label: "Work" },
     { href: "#contact", label: "Contact" }
   ];
-  return renderTemplate`${maybeRenderHead()}<nav class="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-neutral-950/70 border-b border-black/10 dark:border-white/10"> <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between"> <a href="#" class="font-semibold tracking-tight">Bekzod.dev</a> <div class="flex items-center gap-4"> <ul class="hidden sm:flex items-center gap-6 text-sm"> ${links.map((l) => renderTemplate`<li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"${addAttribute(l.href, "href")}>${l.label}</a></li>`)} </ul> <a href="/resume/resume_Bekzod.pdf" download class="uppercase text-[12px] tracking-wide hover:underline underline-offset-4 decoration-neutral-400/70 dark:decoration-white/40">Resume</a> <button type="button" title="Toggle theme" class="px-2 py-1 rounded-md text-sm border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors" onclick="window.__toggleTheme && window.__toggleTheme()"> <span class="dark:hidden">🌙</span> <span class="hidden dark:inline">☀️</span> </button> </div> </div> </nav>`;
+  return renderTemplate`${maybeRenderHead()}<nav class="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-neutral-950/70 border-b border-black/10 dark:border-white/10"> <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between"> <a href="#" class="font-semibold tracking-tight">Bekzod.dev</a> <div class="flex items-center gap-4"> <ul class="hidden sm:flex items-center gap-6 text-sm"> ${links.map((l) => renderTemplate`<li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"${addAttribute(l.href, "href")}>${l.label}</a></li>`)} </ul> <a href="/resume/resume_Bekzod.pdf" download class="uppercase text-[12px] tracking-wide hover:underline underline-offset-4 decoration-neutral-400/70 dark:decoration-white/40">Resume</a> <button type="button" title="Toggle theme" aria-label="Toggle theme" class="h-9 w-9 inline-flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/20 transition-colors" onclick="window.__toggleTheme && window.__toggleTheme()"> <span class="dark:hidden">${renderComponent($$result, "Moon", $$Moon, { "size": 18 })}</span> <span class="hidden dark:inline">${renderComponent($$result, "Sun", $$Sun, { "size": 18 })}</span> </button> </div> </div> </nav>`;
 }, "/Users/bekzod/Documents/code/portfolio/modern_portfolio/front_end/src/components/Nav.astro", void 0);
 
 const $$Hero = createComponent(($$result, $$props, $$slots) => {

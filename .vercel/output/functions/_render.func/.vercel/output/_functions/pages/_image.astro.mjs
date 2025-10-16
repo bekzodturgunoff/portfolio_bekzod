@@ -1,5 +1,5 @@
 import { A as AstroError, f as NoImageMetadata, F as FailedToFetchRemoteImageDimensions, g as ExpectedImageOptions, h as ExpectedImage, i as ExpectedNotESMImage, r as resolveSrc, j as isRemoteImage, k as isCoreRemotePath, l as isESMImportedImage, m as isLocalService, D as DEFAULT_HASH_PROPS, n as InvalidImageService, o as ImageMissingAlt, p as isRemoteAllowed } from '../chunks/astro/assets-service_FN4Tcy0P.mjs';
-import { c as createComponent, f as createAstro, m as maybeRenderHead, e as addAttribute, s as spreadAttributes, b as renderTemplate } from '../chunks/astro/server_CdUeg0b0.mjs';
+import { c as createComponent, e as createAstro, m as maybeRenderHead, g as addAttribute, s as spreadAttributes, b as renderTemplate } from '../chunks/astro/server_CmEZ7lM_.mjs';
 import 'clsx';
 import * as mime from 'mrmime';
 export { renderers } from '../renderers.mjs';
