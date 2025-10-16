@@ -1,17 +1,26 @@
-<footer class="max-w-6xl mx-auto px-4 py-20 text-[12px] text-neutral-500 dark:text-neutral-400">
-  <div class="grid grid-cols-3 items-center gap-4 mb-6">
+<footer class="max-w-6xl mx-auto px-4 py-16 sm:py-20 text-xs sm:text-[12px] text-neutral-500 dark:text-neutral-400">
+  <!-- Top band: desktop -->
+  <div class="hidden sm:grid grid-cols-3 items-center gap-4 mb-6">
     <div>Bekzod Turgunov</div>
     <div class="h-px bg-neutral-200 dark:bg-white/10"></div>
     <div class="text-right">{new Date().getFullYear()}</div>
   </div>
-  <div class="flex items-center justify-between">
+  <!-- Top band: mobile -->
+  <div class="sm:hidden flex items-center justify-between mb-6">
+    <div>Bekzod T.</div>
+    <div class="h-px flex-1 mx-4 bg-neutral-200 dark:bg-white/10"></div>
+    <div>{new Date().getFullYear()}</div>
+  </div>
+
+  <!-- Bottom row -->
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
     <div class="text-neutral-600 dark:text-neutral-400">© {new Date().getFullYear()} Bekzod — All rights reserved.</div>
-    <div class="flex items-center gap-5">
+    <div class="flex flex-wrap items-center justify-start sm:justify-end gap-x-4 gap-y-2">
       <a class="hover:text-neutral-900 dark:hover:text-neutral-50" href="mailto:bekzodturgunoff@gmail.com" rel="noreferrer">Email</a>
-      <a class="hover:text-neutral-900 dark:hover:text-neutral-50" href="tel:+8201079328573" rel="noreferrer">+82 10 7932 8573</a>
+      <a class="hover:text-neutral-900 dark:hover:text-neutral-50 whitespace-nowrap" href="tel:+8201079328573" rel="noreferrer">+82 10 7932 8573</a>
       <a class="hover:text-neutral-900 dark:hover:text-neutral-50" href="https://github.com/bekzodturgunoff" target="_blank" rel="noreferrer">GitHub</a>
       <a class="hover:text-neutral-900 dark:hover:text-neutral-50" href="https://t.me/bekzodturgunoff" target="_blank" rel="noreferrer">Telegram</a>
-  <a class="hover:text-neutral-900 dark:hover:text-neutral-50" href="/resume/resume_Bekzod.pdf" download>Resume</a>
+      <a class="hover:text-neutral-900 dark:hover:text-neutral-50" href="/resume/resume_Bekzod.pdf" download>Resume</a>
     </div>
   </div>
 </footer>
