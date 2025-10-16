@@ -1,5 +1,5 @@
 {
-  "project": "portfolio",
+  "project": "",
   "framework": "astro",
   "buildCommand": "npm run build",
   "installCommand": "npm install",
