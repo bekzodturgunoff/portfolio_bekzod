@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 /**** Tailwind Config ****/
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -5,6 +7,9 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,md,mdx}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         brand: {
           50: '#eff6ff',

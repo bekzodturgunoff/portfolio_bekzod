@@ -1,7 +1,16 @@
 ---
 import { Sun, Moon } from 'lucide-astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
 import { getDictionary } from '../i18n';
-const t = getDictionary('en');
+import type { Locale } from '../i18n';
+
+// Detect current language from URL
+const path = Astro.url.pathname;
+let currentLang: Locale = 'en';
+if (path.startsWith('/ru')) currentLang = 'ru';
+else if (path.startsWith('/ko')) currentLang = 'ko';
+
+const t = getDictionary(currentLang);
 const links = [
   { href: '#about', label: t.nav.links.about },
   { href: '#skills', label: t.nav.links.skills },
@@ -23,6 +32,7 @@ const links = [
         ))}
       </ul>
   <a href="/resume/resume_Bekzod.docx" download class="uppercase text-[12px] tracking-wide hover:underline underline-offset-4 decoration-neutral-400/70 dark:decoration-white/40 transition-all" aria-label="Download resume">{t.nav.links.resume}</a>
+      <LanguageSwitcher />
       <button
         type="button"
         title="Toggle dark/light mode"

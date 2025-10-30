@@ -1,6 +1,14 @@
 ---
 import { getDictionary } from '../i18n';
-const t = getDictionary('en');
+import type { Locale } from '../i18n';
+
+// Detect current language from URL
+const path = Astro.url.pathname;
+let currentLang: Locale = 'en';
+if (path.startsWith('/ru')) currentLang = 'ru';
+else if (path.startsWith('/ko')) currentLang = 'ko';
+
+const t = getDictionary(currentLang);
 ---
 <footer class="max-w-6xl mx-auto px-4 py-16 sm:py-20 text-xs sm:text-[12px] text-neutral-500 dark:text-neutral-400">
   <!-- Maintenance message -->

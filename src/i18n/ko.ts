@@ -7,7 +7,7 @@ const ko: I18n = {
   hero: {
     name: 'Bekzod Turgunov',
     titleTop: '프런트엔드 개발자',
-    titleBottom: '& 브랜드 마인드 디자이너',
+    titleBottom: '디자인과 사용자 경험에 집중하는',
     description: '저는 기업이 고객과 진정한 대화를 나눌 수 있도록 빠르고 의미 있는 웹사이트를 만듭니다. 서울에 거주하며, 우즈베키스탄 출신입니다. 아이디어를 세련되고 접근 가능한 디지털 경험으로 바꾸는 것을 좋아합니다.',
     location: '대한민국, 서울',
     availability: '새 프로젝트 가능',

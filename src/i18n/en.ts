@@ -7,7 +7,7 @@ const en: I18n = {
   hero: {
     name: 'Bekzod Turgunov',
     titleTop: 'Front-end Developer',
-    titleBottom: '& Brand-minded Designer',
+    titleBottom: 'focused on Design and User Experience',
     description: `I build fast, meaningful websites that connect businesses with their customers. Based in Seoul, I'm originally from Uzbekistan and I love turning ideas into sleek, accessible digital experiences.`,
     location: 'South Korea, Seoul',
     availability: 'Open for new projects',
