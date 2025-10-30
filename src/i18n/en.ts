@@ -8,7 +8,7 @@ const en: I18n = {
     name: 'Bekzod Turgunov',
     titleTop: 'Front-end Developer',
     titleBottom: '& Brand-minded Designer',
-    description: `I build fast, meaningful websites that help businesses talk to their customers — not down to them. Based in Seoul, I’m originally from Uzbekistan and I love turning ideas into sleek, accessible digital experiences.`,
+    description: `I build fast, meaningful websites that connect businesses with their customers. Based in Seoul, I'm originally from Uzbekistan and I love turning ideas into sleek, accessible digital experiences.`,
     location: 'South Korea, Seoul',
     availability: 'Open for new projects',
     timezoneLabel: 'KST (GMT +9)'
@@ -28,7 +28,7 @@ const en: I18n = {
   },
   skills: {
     title: 'What I Work With',
-    items: ['JavaScript','TypeScript','React','Node','Astro','Tailwind','Sass','Sanity','Next.js','REST/GROQ']
+    items: ['JavaScript','TypeScript','React','Astro','Tailwind','Sass']
   },
   footer: {
     reserved: 'All rights reserved.',
