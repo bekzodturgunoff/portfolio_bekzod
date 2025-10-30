@@ -6,8 +6,8 @@ const en: I18n = {
   },
   hero: {
     name: 'Bekzod Turgunov',
-    titleTop: 'Front-end Developer',
-    titleBottom: 'focused on Design and User Experience',
+  titleTop: 'Front-end Developer',
+  titleBottom: 'focused on User Experience',
     description: `I build fast, meaningful websites that connect businesses with their customers. Based in Seoul, I'm originally from Uzbekistan and I love turning ideas into sleek, accessible digital experiences.`,
     location: 'South Korea, Seoul',
     availability: 'Open for new projects',
@@ -47,41 +47,29 @@ const en: I18n = {
       { label: 'Client', value: 'KDSX' },
       { label: 'Role', value: 'Product Designer · Front-end Developer' },
       { label: 'Timeline', value: '4 weeks · 2025' },
-      { label: 'Stack', value: 'Next.js, Tailwind, Vercel, Resend' }
+      { label: 'Stack', value: 'Astro, Tailwind, Vercel, Resend' }
     ],
     problem: {
       title: 'The challenge',
-      body: 'KDSX needed a landing page that explained a technical AI product while earning signups from operations teams with no time to read. The early MVP page was dense, unclear on value, and underperformed on mobile.'
+      body: 'KDSX needed a modern landing page that clearly explained its AI tools and encouraged users to try them. The previous version looked outdated, didn’t show product value well, and wasn’t friendly on mobile.'
     },
     research: {
-      title: 'What I learned',
+      title: 'What I did',
       bullets: [
-        'Interviewed 6 early adopters and uncovered that “instant answers” and “Slack-ready” were the deciding messages.',
-        'Benchmarked 8 competitors and found most buried social proof and integrations below the fold.',
-        'Mapped the trial signup flow and identified two high-friction steps causing 40% drop-off on phones.'
+        'Redesigned and rebuilt the entire website from scratch to make it faster, more visual, and easier to understand.',
+        'Created custom mockups of the KDSX apps inside iMac, iPad, and iPhone frames so visitors can see how the tools actually work.',
+        'Built a simple wizard form that collects user info and gives instant access to a free trial of KDSX’s three main apps.'
       ]
     },
     design: {
-      title: 'Design & build',
+      title: 'Results',
       bullets: [
-        'Prototyped three hero variations in Figma; usability tests favoured the conversational headline and live demo preview.',
-        'Crafted a modular layout system in Tailwind so new sections (use cases, integrations) could launch in under an hour.',
-        'Developed the production site in Next.js with image optimisation, edge caching, and a Resend-powered waitlist form.'
+        'The new site feels clean, fast, and professional, helping people grasp KDSX in seconds and motivating more visitors to try it.'
       ]
-    },
-    impact: {
-      title: 'Impact',
-      metrics: [
-        { value: '+38%', label: 'Signup conversion in first month' },
-        { value: '4 weeks', label: 'Concept to launch timeline' },
-        { value: '-24%', label: 'Mobile bounce rate after redesign' }
-      ],
-      body: 'Beyond the numbers, the modular system let the team ship three more page updates without design support. The brand now feels polished enough for enterprise buyers while keeping the build lightweight.'
     },
     images: [
       { src: '/images/projects/before.png', alt: 'Original KDSX landing page before redesign', caption: 'Original MVP screen before the redesign — dense copy, low contrast, and no clear call to action.' },
-      { src: '/images/projects/kdsx.png', alt: 'Screenshot of the KDSX landing page', caption: 'High-fidelity desktop screen highlighting the reworked hero, use cases, and social proof.' },
-      { src: '/images/projects/kdsx.svg', alt: 'Illustration created for the KDSX hero section', caption: 'Custom illustration system used across hero states and onboarding emails.' }
+      { src: '/images/projects/kdsx.png', alt: 'Screenshot of the KDSX landing page', caption: 'High-fidelity desktop screen highlighting the reworked hero, use cases, and social proof.' }
     ],
     cta: { label: 'Visit live site', href: 'https://kdsx.vercel.app' }
   },

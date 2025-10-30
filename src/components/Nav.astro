@@ -10,6 +10,7 @@ if (path.startsWith('/ru')) currentLang = 'ru';
 else if (path.startsWith('/ko')) currentLang = 'ko';
 
 const t = getDictionary(currentLang);
+const homeHref = currentLang === 'en' ? '/' : `/${currentLang}/`;
 const links = [
   { href: '#about', label: t.nav.links.about },
   { href: '#skills', label: t.nav.links.skills },
@@ -24,7 +25,7 @@ const links = [
 
 <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-neutral-950/80 border-b border-black/10 dark:border-white/10 transition-all" aria-label="Main navigation">
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-    <a href="#" class="font-semibold tracking-tight hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors" aria-label="Home">Bekzod.dev</a>
+  <a href={homeHref} class="font-semibold tracking-tight hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors" aria-label="Home">Bekzod.dev</a>
     <div class="flex items-center gap-4">
       <ul class="hidden sm:flex items-center gap-6 text-sm">
         {links.map((l) => (
