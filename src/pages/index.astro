@@ -3,7 +3,6 @@ import Base from "../layouts/Base.astro";
 import Nav from "../components/Nav.astro";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
-import LogoMarquee from "../components/LogoMarquee.astro";
 import Projects from "../components/Projects.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Footer from "../components/Footer.astro";
@@ -20,7 +19,7 @@ const headingRight = headingRightWords.join(' ');
   <Nav />
   <main id="main">
   <Hero />
-  <LogoMarquee />
+
 
   <Section id="about" title={t.nav.links.about}>
     <p class="max-w-prose text-neutral-700 dark:text-neutral-300">{t.about.intro}</p>
