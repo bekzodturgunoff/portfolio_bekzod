@@ -54,7 +54,7 @@ const en: I18n = {
       body: 'KDSX needed a landing page that explained a technical AI product while earning signups from operations teams with no time to read. The early MVP page was dense, unclear on value, and underperformed on mobile.'
     },
     research: {
-      title: 'What we learned',
+      title: 'What I learned',
       bullets: [
         'Interviewed 6 early adopters and uncovered that “instant answers” and “Slack-ready” were the deciding messages.',
         'Benchmarked 8 competitors and found most buried social proof and integrations below the fold.',
@@ -79,6 +79,7 @@ const en: I18n = {
       body: 'Beyond the numbers, the modular system let the team ship three more page updates without design support. The brand now feels polished enough for enterprise buyers while keeping the build lightweight.'
     },
     images: [
+      { src: '', alt: '', caption: 'Before redesign image coming soon', placeholder: true },
       { src: '/images/projects/kdsx.png', alt: 'Screenshot of the KDSX landing page', caption: 'High-fidelity desktop screen highlighting the reworked hero, use cases, and social proof.' },
       { src: '/images/projects/kdsx.svg', alt: 'Illustration created for the KDSX hero section', caption: 'Custom illustration system used across hero states and onboarding emails.' }
     ],

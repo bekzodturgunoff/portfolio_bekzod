@@ -48,7 +48,7 @@ export type I18n = {
     research: { title: string; bullets: string[] };
     design: { title: string; bullets: string[] };
     impact: { title: string; metrics: { value: string; label: string }[]; body: string };
-    images: { src: string; alt: string; caption: string }[];
+  images: { src: string; alt: string; caption: string; placeholder?: boolean }[];
     cta: { label: string; href: string };
   };
   skills: {

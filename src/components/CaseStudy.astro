@@ -62,9 +62,17 @@ const data = getDictionary(currentLang).caseStudy;
 
       <aside class="space-y-6" data-reveal>
         {data.images.map((image) => (
-          <figure class="overflow-hidden rounded-3xl border border-black/10 dark:border-white/10 bg-neutral-100 dark:bg-neutral-900/60">
-            <img src={image.src} alt={image.alt} loading="lazy" class="w-full object-cover" />
-            <figcaption class="px-5 py-4 text-sm text-neutral-600 dark:text-neutral-300 border-t border-black/5 dark:border-white/5">{image.caption}</figcaption>
+          <figure class={`overflow-hidden rounded-3xl bg-neutral-100 dark:bg-neutral-900/60 ${image.placeholder ? 'border border-dashed border-black/15 dark:border-white/15' : 'border border-black/10 dark:border-white/10'}`}>
+            {image.placeholder ? (
+              <div class="flex h-48 items-center justify-center px-6 text-center text-sm text-neutral-500 dark:text-neutral-400">
+                {image.caption}
+              </div>
+            ) : (
+              <>
+                <img src={image.src} alt={image.alt} loading="lazy" class="w-full object-cover" />
+                <figcaption class="px-5 py-4 text-sm text-neutral-600 dark:text-neutral-300 border-t border-black/5 dark:border-white/5">{image.caption}</figcaption>
+              </>
+            )}
           </figure>
         ))}
       </aside>
