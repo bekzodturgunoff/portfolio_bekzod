@@ -1,30 +1,60 @@
 ---
 const projects = [
-  { title: 'Astro Portfolio', year: "'25", tags: ['DEV','DSGN'], href: 'https://github.com/bekzodturgunoff' },
-  { title: 'React + Framer Portfolio', year: "'24", tags: ['DEV','UX'], href: 'https://github.com/bekzodturgunoff' },
-  { title: 'Node Email API', year: "'25", tags: ['API','NODE'], href: 'https://github.com/bekzodturgunoff' },
+  { 
+    title: 'Modern Portfolio Site', 
+    year: '2025', 
+    tags: ['ASTRO','TAILWIND','UX'], 
+    href: 'https://github.com/bekzodturgunoff',
+    description: 'Built with Astro, Tailwind, and modern best practices — fast, clean, and made for real users.',
+    image: '/images/projects/portfolio.svg'
+  },
+  { 
+    title: 'KDSX Landing Page', 
+    year: '2025', 
+    tags: ['NEXT.JS','DESIGN','API'], 
+    href: 'https://kdsx.vercel.app',
+    description: 'Built with Next.js and sharp design — delivering a beautiful, high-converting landing experience.',
+    image: '/images/projects/kdsx.svg'
+  },
+  { 
+    title: 'GitHub Projects', 
+    year: '2021+', 
+    tags: ['OPEN SOURCE','DEV'], 
+    href: 'https://github.com/bekzodturgunoff',
+    description: 'Open-source projects and experiments — where I learn, build, and share with the community.',
+    image: '/images/projects/github.svg'
+  },
 ];
 ---
 <section class="max-w-6xl mx-auto px-4">
   <div class="divide-y divide-neutral-200/80 dark:divide-white/10">
     {projects.map((p) => (
-      <a href={p.href} class="block group">
-        <div class="grid grid-cols-12 items-center py-12 sm:py-16 hover:bg-black/[0.02] dark:hover:bg-white/[0.04] transition-colors" data-reveal>
-          <div class="col-span-8 pr-6">
-            <h3 class="text-2xl sm:text-[28px] font-semibold tracking-tight">{p.title}</h3>
-            <div class="mt-3 flex items-center gap-2">
+      <a href={p.href} target="_blank" rel="noreferrer" class="block group">
+        <div class="grid grid-cols-12 items-start gap-6 py-12 sm:py-16 hover:bg-black/[0.02] dark:hover:bg-white/[0.04] transition-colors" data-reveal>
+          <div class="col-span-12 md:col-span-7 lg:col-span-8">
+            <h3 class="text-2xl sm:text-[28px] font-semibold tracking-tight mb-3 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors">{p.title}</h3>
+            <p class="text-[15px] text-neutral-600 dark:text-neutral-400 mb-4 leading-relaxed">{p.description}</p>
+            <div class="flex flex-wrap items-center gap-2">
               {p.tags.map(t => (
-                <span class="px-2 py-0.5 text-[11px] rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/10">{t}</span>
+                <span class="px-2.5 py-1 text-[11px] rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/10 uppercase tracking-wide">{t}</span>
               ))}
-              <div class="h-px flex-1 bg-neutral-200 dark:bg-white/10 ml-3"></div>
             </div>
           </div>
-          <div class="col-span-4 pl-6">
-            <div class="flex items-center justify-between mb-4">
-              <div></div>
-              <div class="text-neutral-500 dark:text-neutral-400">{p.year}</div>
+          <div class="col-span-12 md:col-span-5 lg:col-span-4">
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-sm text-neutral-500 dark:text-neutral-400">{p.year}</div>
+              <svg class="w-5 h-5 text-neutral-400 dark:text-neutral-500 group-hover:translate-x-1 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
             </div>
-            <div class="aspect-[16/10] rounded-xl border border-black/10 dark:border-white/10 bg-gradient-to-b from-neutral-200 to-neutral-100 dark:from-white/10 dark:to-white/5 group-hover:scale-[1.01] transition-transform"></div>
+            <div class="aspect-[16/10] rounded-xl border border-black/10 dark:border-white/10 overflow-hidden bg-gradient-to-b from-neutral-200 to-neutral-100 dark:from-white/10 dark:to-white/5 group-hover:scale-[1.02] transition-transform">
+              <img 
+                src={p.image} 
+                alt={`${p.title} preview`}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </a>
