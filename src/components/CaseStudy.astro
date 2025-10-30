@@ -1,0 +1,91 @@
+---
+import { getDictionary } from '../i18n';
+import type { Locale } from '../i18n';
+
+const path = Astro.url.pathname;
+let currentLang: Locale = 'en';
+if (path.startsWith('/ru')) currentLang = 'ru';
+else if (path.startsWith('/ko')) currentLang = 'ko';
+
+const data = getDictionary(currentLang).caseStudy;
+---
+<section id="case-study" class="bg-neutral-50 dark:bg-neutral-950/60 border-y border-black/10 dark:border-white/10">
+  <div class="max-w-6xl mx-auto px-4 py-20 sm:py-24">
+    <div class="flex flex-col gap-6" data-reveal>
+      <span class="self-start px-3 py-1 rounded-full text-xs tracking-wide uppercase bg-black/5 dark:bg-white/10 text-neutral-600 dark:text-neutral-300 border border-black/10 dark:border-white/10">{data.badge}</span>
+      <div>
+        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">{data.title}</h2>
+        <p class="mt-4 text-neutral-700 dark:text-neutral-300 max-w-3xl">{data.subtitle}</p>
+      </div>
+      <a href={data.cta.href} target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 self-start btn btn-primary btn-md">
+        {data.cta.label}
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0-5-5m5 5-5 5" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mt-12" data-reveal>
+      {data.meta.map((item) => (
+        <div class="rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-black/30 backdrop-blur-sm px-4 py-5">
+          <div class="text-[11px] uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">{item.label}</div>
+          <div class="mt-2 text-sm font-medium text-neutral-900 dark:text-neutral-100">{item.value}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 grid gap-12 lg:grid-cols-[1.2fr_1fr]">
+      <div class="space-y-10" data-reveal>
+        <article class="space-y-3">
+          <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100">{data.problem.title}</h3>
+          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">{data.problem.body}</p>
+        </article>
+
+        <article class="space-y-3">
+          <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100">{data.research.title}</h3>
+          <ul class="space-y-2 text-neutral-700 dark:text-neutral-300 leading-relaxed list-disc list-inside">
+            {data.research.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="space-y-3">
+          <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100">{data.design.title}</h3>
+          <ul class="space-y-2 text-neutral-700 dark:text-neutral-300 leading-relaxed list-disc list-inside">
+            {data.design.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </article>
+      </div>
+
+      <aside class="space-y-6" data-reveal>
+        {data.images.map((image) => (
+          <figure class="overflow-hidden rounded-3xl border border-black/10 dark:border-white/10 bg-neutral-100 dark:bg-neutral-900/60">
+            <img src={image.src} alt={image.alt} loading="lazy" class="w-full object-cover" />
+            <figcaption class="px-5 py-4 text-sm text-neutral-600 dark:text-neutral-300 border-t border-black/5 dark:border-white/5">{image.caption}</figcaption>
+          </figure>
+        ))}
+      </aside>
+    </div>
+
+    <div class="mt-16 grid gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="space-y-6" data-reveal>
+        <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100">{data.impact.title}</h3>
+        <div class="grid gap-4 sm:grid-cols-3">
+          {data.impact.metrics.map((metric) => (
+            <div class="rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-black/30 backdrop-blur-sm px-5 py-6">
+              <div class="text-3xl font-semibold text-neutral-900 dark:text-neutral-50">{metric.value}</div>
+              <div class="mt-2 text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">{metric.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="bg-white/80 dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-3xl px-6 py-8 space-y-3" data-reveal>
+        <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">{data.impact.body}</p>
+      </div>
+    </div>
+  </div>
+</section>

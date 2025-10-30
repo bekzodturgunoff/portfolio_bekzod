@@ -2,7 +2,7 @@ export type Locale = 'en' | 'ru' | 'ko';
 
 export type I18n = {
   nav: {
-    links: { about: string; skills: string; work: string; contact: string; resume: string };
+    links: { about: string; skills: string; caseStudy: string; work: string; contact: string; resume: string };
   };
   hero: {
     name: string;
@@ -38,6 +38,18 @@ export type I18n = {
   };
   projects: {
     selectedWork: string;
+  };
+  caseStudy: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    meta: { label: string; value: string }[];
+    problem: { title: string; body: string };
+    research: { title: string; bullets: string[] };
+    design: { title: string; bullets: string[] };
+    impact: { title: string; metrics: { value: string; label: string }[]; body: string };
+    images: { src: string; alt: string; caption: string }[];
+    cta: { label: string; href: string };
   };
   skills: {
     title: string;

@@ -85,15 +85,24 @@ const t = getDictionary(currentLang);
           body: JSON.stringify(data),
         });
 
-        if (response.ok) {
-          status.textContent = '✓ Message sent!';
-          status.className = 'text-sm text-emerald-600 dark:text-emerald-400';
-          form.reset();
-          setTimeout(() => { status.textContent = ''; }, 5000);
-        } else {
+        if (!response.ok) {
+          let bodyText = '';
+          try { bodyText = await response.text(); } catch {}
+          console.error('Contact form failed', {
+            status: response.status,
+            statusText: response.statusText,
+            body: bodyText,
+            apiBase: API_BASE,
+          });
           throw new Error('Failed to send');
         }
+
+        status.textContent = '✓ Message sent!';
+        status.className = 'text-sm text-emerald-600 dark:text-emerald-400';
+        form.reset();
+        setTimeout(() => { status.textContent = ''; }, 5000);
       } catch (err) {
+        console.error('Contact form error:', err);
         status.textContent = '✗ Failed to send. Please try email instead.';
         status.className = 'text-sm text-red-600 dark:text-red-400';
       }
