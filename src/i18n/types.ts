@@ -12,6 +12,10 @@ export type I18n = {
     location: string;
     availability: string;
     timezoneLabel: string;
+    buttons: {
+      contact: string;
+      viewWork: string;
+    };
   };
   about: {
     intro: string;
@@ -22,6 +26,15 @@ export type I18n = {
     heading: string;
     intro: string;
     ctas: { call: string; email: string; telegram: string };
+    form: {
+      name: string;
+      namePlaceholder: string;
+      email: string;
+      emailPlaceholder: string;
+      message: string;
+      messagePlaceholder: string;
+      submit: string;
+    };
   };
   projects: {
     selectedWork: string;

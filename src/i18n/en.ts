@@ -11,7 +11,11 @@ const en: I18n = {
     description: `I build fast, meaningful websites that connect businesses with their customers. Based in Seoul, I'm originally from Uzbekistan and I love turning ideas into sleek, accessible digital experiences.`,
     location: 'South Korea, Seoul',
     availability: 'Open for new projects',
-    timezoneLabel: 'KST (GMT +9)'
+    timezoneLabel: 'KST (GMT +9)',
+    buttons: {
+      contact: 'Contact Me',
+      viewWork: 'View Work'
+    }
   },
   about: {
     intro: `I’m a front-end developer who believes the web should feel alive and easy to use. I focus on fast, accessible design that makes people’s lives a little simpler.`,
@@ -21,7 +25,16 @@ const en: I18n = {
   contact: {
     heading: `Let's Connect`,
     intro: `Want to build something cool, fix a tricky bug, or just talk ideas? Message me anytime — I’m around.`,
-    ctas: { call: 'Call Me', email: 'Send an Email', telegram: 'Message on Telegram' }
+    ctas: { call: 'Call Me', email: 'Send an Email', telegram: 'Message on Telegram' },
+    form: {
+      name: 'Name',
+      namePlaceholder: 'Your name',
+      email: 'Email',
+      emailPlaceholder: 'your@email.com',
+      message: 'Message',
+      messagePlaceholder: "What's on your mind?",
+      submit: 'Send Message'
+    }
   },
   projects: {
     selectedWork: 'Selected Work'
