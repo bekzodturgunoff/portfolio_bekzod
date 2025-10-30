@@ -79,7 +79,7 @@ const ko: I18n = {
       body: '숫자뿐 아니라, 이 모듈 시스템 덕분에 팀은 추가 디자인 지원 없이도 세 번의 페이지 업데이트를 더 출시할 수 있었습니다. 브랜드는 엔터프라이즈 고객에게도 신뢰를 주면서도 가볍고 빠르게 유지됩니다.'
     },
     images: [
-      { src: '', alt: '', caption: '조만간 이전 디자인 이미지를 추가할 예정입니다', placeholder: true },
+      { src: '/images/projects/before.png', alt: '리디자인 이전 KDSX 랜딩 페이지', caption: '리디자인 전 MVP 화면 — 텍스트 과다, 낮은 대비, 명확하지 않은 CTA.' },
       { src: '/images/projects/kdsx.png', alt: 'KDSX 랜딩 페이지 스크린샷', caption: '히어로, 사용 사례, 사회적 증거를 재구성한 데스크톱 화면.' },
       { src: '/images/projects/kdsx.svg', alt: 'KDSX 히어로 일러스트', caption: '히어로 상태와 온보딩 이메일에 사용된 맞춤 일러스트 세트.' }
     ],

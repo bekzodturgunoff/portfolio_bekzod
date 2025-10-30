@@ -79,7 +79,7 @@ const en: I18n = {
       body: 'Beyond the numbers, the modular system let the team ship three more page updates without design support. The brand now feels polished enough for enterprise buyers while keeping the build lightweight.'
     },
     images: [
-      { src: '', alt: '', caption: 'Before redesign image coming soon', placeholder: true },
+      { src: '/images/projects/before.png', alt: 'Original KDSX landing page before redesign', caption: 'Original MVP screen before the redesign — dense copy, low contrast, and no clear call to action.' },
       { src: '/images/projects/kdsx.png', alt: 'Screenshot of the KDSX landing page', caption: 'High-fidelity desktop screen highlighting the reworked hero, use cases, and social proof.' },
       { src: '/images/projects/kdsx.svg', alt: 'Illustration created for the KDSX hero section', caption: 'Custom illustration system used across hero states and onboarding emails.' }
     ],
