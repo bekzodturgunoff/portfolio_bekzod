@@ -2,7 +2,6 @@
 import { getDictionary } from '../i18n';
 import type { Locale } from '../i18n';
 
-// Detect current language from URL
 const path = Astro.url.pathname;
 let currentLang: Locale = 'en';
 if (path.startsWith('/ru')) currentLang = 'ru';
@@ -12,7 +11,6 @@ const t = getDictionary(currentLang);
 ---
 <section class="relative overflow-hidden">
   <div class="max-w-6xl mx-auto px-4 py-20 sm:py-24">
-    <!-- Name + thin rule + nav sits above in Nav; this bar mirrors the reference -->
     <div class="hidden sm:grid grid-cols-3 items-center text-xs text-neutral-500 dark:text-neutral-400 mb-8" data-reveal>
   <div class="font-medium">{t.hero.name}</div>
       <div class="h-px bg-neutral-200 dark:bg-white/10"></div>
@@ -21,20 +19,17 @@ const t = getDictionary(currentLang);
       </div>
     </div>
 
-    <!-- Massive headline -->
     <h1 class="leading-[0.95] text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6" data-reveal>
   <span class="block text-neutral-300 dark:text-white/90">{t.hero.titleTop}</span>
   <span class="block text-neutral-900 dark:text-white">{t.hero.titleBottom}</span>
     </h1>
 
-    <!-- Location / availability bar -->
     <div class="flex items-center gap-4 text-[11px] text-neutral-500 dark:text-neutral-400 mb-12" data-reveal>
   <span>{t.hero.location}</span>
       <div class="h-px flex-1 bg-neutral-200 dark:bg-white/10"></div>
   <span class="inline-flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> {t.hero.availability}</span>
     </div>
 
-    <!-- Main split: description left, portrait/right visual -->
     <div class="grid md:grid-cols-2 gap-12 items-start">
       <div class="max-w-prose" data-reveal>
         <p class="text-neutral-700 dark:text-neutral-300">{t.hero.description}</p>
@@ -44,7 +39,6 @@ const t = getDictionary(currentLang);
         </div>
       </div>
       <div class="relative" data-reveal>
-        <!-- Use a placeholder visual; replace with an image later -->
         <div class="aspect-[4/3] md:aspect-[5/4] rounded-3xl bg-gradient-to-b from-black/30 to-black/70 dark:from-white/5 dark:to-white/5 border border-black/20 dark:border-white/10"></div>
       </div>
     </div>

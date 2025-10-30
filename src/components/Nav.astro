@@ -4,7 +4,6 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 import { getDictionary } from '../i18n';
 import type { Locale } from '../i18n';
 
-// Detect current language from URL
 const path = Astro.url.pathname;
 let currentLang: Locale = 'en';
 if (path.startsWith('/ru')) currentLang = 'ru';

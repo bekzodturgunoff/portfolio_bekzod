@@ -68,8 +68,7 @@ const imageURL = new URL(image, siteUrl);
       document.documentElement.classList.toggle('dark', dark);
     } catch {}
   })();
-  // expose toggle function
-  // @ts-ignore - augmenting window for simple theme toggle
+  // @ts-ignore
   window.__toggleTheme = () => {
     const isDark = document.documentElement.classList.toggle('dark');
     try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch {}
