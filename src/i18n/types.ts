@@ -1,5 +1,3 @@
-export type Locale = 'en' | 'ru' | 'ko';
-
 export type I18n = {
   nav: {
     links: { about: string; skills: string; caseStudy: string; work: string; contact: string; resume: string };

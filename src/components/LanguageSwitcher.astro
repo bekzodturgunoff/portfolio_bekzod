@@ -1,107 +1,132 @@
 ---
-const languages = [
-  { code: 'en', label: 'EN' },
-  { code: 'ru', label: 'RU' },
-  { code: 'ko', label: 'KO' },
-];
+import { languages, defaultLang } from '../i18n';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang } = Astro.props;
+const currentLang = lang || defaultLang;
+
+const entries = Object.entries(languages);
+const getPath = (code: string) => (code === defaultLang ? '/' : `/${code}`);
+const selectId = 'lang-select';
 ---
-
-<div class="relative language-switcher">
-  <button
-    type="button"
-    id="lang-button"
-    aria-label="Change language"
-    aria-haspopup="true"
-    aria-expanded="false"
-    class="h-9 px-3 inline-flex items-center justify-center gap-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/30 transition-all text-sm font-medium"
+<div class="relative w-full sm:w-auto" aria-label="Language switcher">
+  <label class="sr-only" for={selectId}>Change language</label>
+  <select
+    id={selectId}
+    data-lang-select
+    class="w-full appearance-none rounded-full border border-black/10 dark:border-white/10 bg-white/90 dark:bg-neutral-900/80 px-4 pr-10 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-neutral-700 dark:text-neutral-200 shadow-sm shadow-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500/40 dark:focus-visible:ring-white/30 transition-all"
   >
-    <span id="current-lang">EN</span>
-    <svg class="w-3 h-3 transition-transform" id="lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-    </svg>
-  </button>
-
-  <div
-    id="lang-dropdown"
-    class="absolute right-0 mt-2 w-24 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 shadow-lg opacity-0 pointer-events-none transition-all origin-top-right scale-95"
-    role="menu"
-    aria-orientation="vertical"
-    aria-labelledby="lang-button"
-  >
-    {languages.map((lang) => (
-      <button
-        type="button"
-        data-lang={lang.code}
-        class="lang-option w-full px-4 py-2 text-left text-sm hover:bg-black/5 dark:hover:bg-white/10 transition-colors first:rounded-t-lg last:rounded-b-lg"
-        role="menuitem"
+    {entries.map(([code, label]) => (
+      <option
+        value={getPath(code)}
+        selected={currentLang === code}
+        data-code={code.toUpperCase()}
+        data-label={label}
       >
-        {lang.label}
-      </button>
+        {label}
+      </option>
     ))}
-  </div>
+  </select>
+  <svg
+    class="pointer-events-none absolute right-4 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-neutral-500 dark:text-neutral-300"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 011.08 1.04l-4.25 4.657a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+  </svg>
 </div>
 
 <script>
-  const button = document.getElementById('lang-button');
-  const dropdown = document.getElementById('lang-dropdown');
-  const currentLang = document.getElementById('current-lang');
-  const chevron = document.getElementById('lang-chevron');
-  const options = document.querySelectorAll('.lang-option');
+  const prefetchedPaths = new Set();
+  let compactMedia;
+  let responsiveLabelsInitialized = false;
 
-  // Detect current language from URL
-  const path = window.location.pathname;
-  let detectedLang = 'en';
-  if (path.startsWith('/ru')) detectedLang = 'ru';
-  else if (path.startsWith('/ko')) detectedLang = 'ko';
-  
-  if (currentLang) {
-    currentLang.textContent = detectedLang.toUpperCase();
-  }
-
-  // Toggle dropdown
-  let isOpen = false;
-  button?.addEventListener('click', () => {
-    isOpen = !isOpen;
-    if (dropdown && chevron) {
-      if (isOpen) {
-        dropdown.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
-        dropdown.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
-        chevron.style.transform = 'rotate(180deg)';
-        button.setAttribute('aria-expanded', 'true');
-      } else {
-        dropdown.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
-        dropdown.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
-        chevron.style.transform = 'rotate(0deg)';
-        button.setAttribute('aria-expanded', 'false');
-      }
-    }
-  });
-
-  // Close dropdown when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!button?.contains(e.target as Node) && !dropdown?.contains(e.target as Node)) {
-      isOpen = false;
-      if (dropdown && chevron) {
-        dropdown.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
-        dropdown.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
-        chevron.style.transform = 'rotate(0deg)';
-        button?.setAttribute('aria-expanded', 'false');
-      }
-    }
-  });
-
-  // Handle language selection
-  options.forEach((option) => {
-    option.addEventListener('click', () => {
-      const lang = option.getAttribute('data-lang');
-      if (lang) {
-        // Navigate to the appropriate language route
-        if (lang === 'en') {
-          window.location.href = '/';
-        } else {
-          window.location.href = `/${lang}/`;
-        }
-      }
+  const updateSelectOptionText = (select, isCompact) => {
+    if (!(select instanceof HTMLSelectElement)) return;
+    Array.from(select.options).forEach((option) => {
+      const full = option.dataset.label;
+      const short = option.dataset.code;
+      if (!full || !short) return;
+      option.textContent = isCompact ? short : full;
     });
-  });
+  };
+
+  const updateSelectLabels = () => {
+    if (typeof window === 'undefined') return;
+    const isCompact = compactMedia ? compactMedia.matches : window.matchMedia('(max-width: 639px)').matches;
+    document.querySelectorAll('[data-lang-select]').forEach((element) => {
+      if (!(element instanceof HTMLSelectElement)) return;
+      updateSelectOptionText(element, isCompact);
+    });
+  };
+
+  const initResponsiveLabels = () => {
+    if (responsiveLabelsInitialized || typeof window === 'undefined') return;
+    responsiveLabelsInitialized = true;
+    compactMedia = window.matchMedia('(max-width: 639px)');
+    const listener = () => updateSelectLabels();
+    if (typeof compactMedia.addEventListener === 'function') {
+      compactMedia.addEventListener('change', listener);
+    } else if (typeof compactMedia.addListener === 'function') {
+      compactMedia.addListener(listener);
+    }
+    updateSelectLabels();
+  };
+
+  const attachLanguageSelect = () => {
+    document.querySelectorAll('[data-lang-select]').forEach((element) => {
+      if (!(element instanceof HTMLSelectElement)) return;
+      if (element.dataset.bound === 'true') return;
+
+      const handleChange = (event) => {
+        const target = event.target;
+        if (!target || typeof target.value !== 'string') return;
+        if (target.value === window.location.pathname) return;
+        window.location.href = target.value;
+      };
+
+      element.addEventListener('change', handleChange);
+      element.dataset.bound = 'true';
+    });
+    initResponsiveLabels();
+    updateSelectLabels();
+  };
+
+  const prefetchLanguagePages = () => {
+    document.querySelectorAll('[data-lang-select]').forEach((element) => {
+      if (!(element instanceof HTMLSelectElement)) return;
+      const options = Array.from(element.options);
+      options.forEach((option) => {
+        const value = option.value;
+        if (!value || value === window.location.pathname) return;
+        const absolute = new URL(value, window.location.origin).toString();
+        if (prefetchedPaths.has(absolute)) return;
+        prefetchedPaths.add(absolute);
+        fetch(absolute, { cache: 'force-cache', credentials: 'same-origin' }).catch(() => {
+          prefetchedPaths.delete(absolute);
+        });
+      });
+    });
+  };
+
+  const schedulePrefetch = () => {
+    if (typeof window === 'undefined') return;
+    const run = () => prefetchLanguagePages();
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(run, { timeout: 2000 });
+    } else {
+      setTimeout(run, 1200);
+    }
+  };
+
+  attachLanguageSelect();
+  schedulePrefetch();
+  document.addEventListener('astro:page-load', attachLanguageSelect);
+  document.addEventListener('astro:page-load', schedulePrefetch);
+  document.addEventListener('astro:page-load', updateSelectLabels);
 </script>

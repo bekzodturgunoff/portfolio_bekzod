@@ -1,22 +1,33 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+import { languages, defaultLang } from '../i18n';
+
 interface Props {
   title?: string;
   description?: string;
   image?: string;
+  lang?: string;
 }
 
 const { 
-  title = 'Bekzod Turgunov — Front-end Developer & Brand-minded Designer', 
+  title = 'Bekzod Turgunov — Front-end Developer', 
   description = 'I build fast, meaningful websites that help businesses talk to their customers. Based in Seoul, originally from Uzbekistan.',
-  image = '/og-image.png'
+  image = '/og-image.png',
+  lang: propLang
 } = Astro.props;
 
 const siteUrl = Astro.site || new URL('http://localhost:4321');
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const imageURL = new URL(image, siteUrl);
+const htmlLang = propLang || 'en';
+const languageCodes = Object.keys(languages);
+const buildLanguagePath = (code: string) => (code === defaultLang ? '/' : `/${code}`);
+const prefetchTargets = languageCodes
+  .filter((code) => code !== htmlLang)
+  .map((code) => buildLanguagePath(code));
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -43,11 +54,22 @@ const imageURL = new URL(image, siteUrl);
     <meta name="author" content="Bekzod Turgunov" />
     <meta name="keywords" content="front-end developer, web developer, React, Astro, Tailwind CSS, Seoul, portfolio" />
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {prefetchTargets.map((href) => (
+      <link rel="prefetch" href={href} as="document" />
+    ))}
 
     <title>{title}</title>
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const dark = stored ? stored === 'dark' : prefersDark;
+          document.documentElement.classList.toggle('dark', dark);
+        } catch {}
+      })();
+    </script>
+    <ViewTransitions />
   </head>
   <body class="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 text-base">
     <slot />
@@ -59,15 +81,6 @@ const imageURL = new URL(image, siteUrl);
 </style>
 
 <script>
-  // set initial theme before paint
-  (() => {
-    try {
-      const stored = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const dark = stored ? stored === 'dark' : prefersDark;
-      document.documentElement.classList.toggle('dark', dark);
-    } catch {}
-  })();
   // @ts-ignore
   window.__toggleTheme = () => {
     const isDark = document.documentElement.classList.toggle('dark');

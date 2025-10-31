@@ -1,13 +1,12 @@
 ---
 import { getDictionary } from '../i18n';
-import type { Locale } from '../i18n';
 
-const path = Astro.url.pathname;
-let currentLang: Locale = 'en';
-if (path.startsWith('/ru')) currentLang = 'ru';
-else if (path.startsWith('/ko')) currentLang = 'ko';
+interface Props {
+  lang?: string;
+}
 
-const t = getDictionary(currentLang);
+const { lang } = Astro.props;
+const t = getDictionary(lang);
 ---
 <footer class="max-w-6xl mx-auto px-4 py-12 sm:py-18 lg:py-20 text-xs sm:text-[12px] text-neutral-500 dark:text-neutral-400">
   <div class="mb-6 sm:mb-8 lg:mb-9 pb-6 sm:pb-8 border-b border-neutral-200 dark:border-white/10">

@@ -1,5 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
-
 /**** Tailwind Config ****/
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -8,7 +6,14 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: [
+          'system-ui',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Helvetica',
+          'Arial',
+          'sans-serif',
+        ],
       },
       colors: {
         brand: {

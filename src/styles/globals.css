@@ -12,6 +12,20 @@ html, body {
   scroll-behavior: smooth;
 }
 
+@layer base {
+  html {
+    hyphens: auto;
+  }
+
+  :where(h1, h2, h3, h4) {
+    text-wrap: balance;
+  }
+
+  :where(p, li, blockquote) {
+    overflow-wrap: anywhere;
+  }
+}
+
 /* Reduced motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

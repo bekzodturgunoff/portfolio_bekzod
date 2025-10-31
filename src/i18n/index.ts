@@ -1,12 +1,25 @@
-import type { I18n, Locale } from './types';
 import en from './en';
-import ru from './ru';
 import ko from './ko';
+import ru from './ru';
+import type { I18n } from './types';
 
-const dictionaries: Record<Locale, I18n> = { en, ru, ko };
+export const languages = {
+  en: 'English',
+  ko: '한국어',
+  ru: 'Русский',
+};
 
-export function getDictionary(locale: Locale = 'en'): I18n {
-  return dictionaries[locale] ?? en;
+export const defaultLang = 'en';
+
+const dictionaries: Record<string, I18n> = {
+  en,
+  ko,
+  ru,
+};
+
+export function getDictionary(lang: string): I18n {
+  return dictionaries[lang] ?? dictionaries[defaultLang];
 }
 
-export type { I18n, Locale };
+export type { I18n };
+

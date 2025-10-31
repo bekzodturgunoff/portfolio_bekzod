@@ -1,16 +1,15 @@
 ---
 import { getDictionary } from '../i18n';
-import type { Locale } from '../i18n';
 
-const path = Astro.url.pathname;
-let currentLang: Locale = 'en';
-if (path.startsWith('/ru')) currentLang = 'ru';
-else if (path.startsWith('/ko')) currentLang = 'ko';
+interface Props {
+  lang?: string;
+}
 
-const t = getDictionary(currentLang);
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+const lottieModuleUrl = 'https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js';
+const animationSrc = 'https://lottie.host/8de0855a-9b84-455d-b883-250f6e3b974b/WEYHTlQXQh.lottie';
 ---
-<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
-
 <section class="relative overflow-hidden bg-white dark:bg-neutral-950/70 dark:border-b dark:border-white/10">
   <div class="max-w-6xl mx-auto px-4 py-14 sm:py-20 lg:py-24">
     <div class="rounded-3xl border border-black/10 dark:border-white/10 bg-white/85 dark:bg-white/5 backdrop-blur-sm shadow-sm p-6 sm:p-10 lg:p-12" data-reveal>
@@ -21,7 +20,7 @@ const t = getDictionary(currentLang);
             <span class="hidden sm:inline text-[11px] tracking-[0.18em]">{t.hero.timezoneLabel}</span>
           </div>
 
-          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-[0.95] space-y-2">
+          <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight break-words text-neutral-900 dark:text-white leading-tight sm:leading-[0.95] space-y-2">
             <span class="block">{t.hero.titleTop}</span>
             <span class="block text-neutral-500 dark:text-neutral-300 font-medium">{t.hero.titleBottom}</span>
           </h1>
@@ -42,15 +41,111 @@ const t = getDictionary(currentLang);
 
         <div class="relative justify-center hidden lg:flex">
           <div class="w-full max-w-sm lg:max-w-md xl:max-w-lg aspect-square flex items-center justify-center">
-            <dotlottie-wc
-              src="https://lottie.host/8de0855a-9b84-455d-b883-250f6e3b974b/WEYHTlQXQh.lottie"
-              style="width: 100%; height: 100%"
-              autoplay
-              loop
-            ></dotlottie-wc>
+            <div
+              data-hero-lottie
+              data-module={lottieModuleUrl}
+              data-src={animationSrc}
+              class="relative h-full w-full overflow-hidden rounded-3xl bg-gradient-to-br from-brand-300/35 via-brand-500/20 to-brand-700/30 flex items-center justify-center"
+              aria-label="Interactive hero animation"
+            >
+              <svg
+                class="h-20 w-20 text-brand-600/60 dark:text-brand-400/60"
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 16c0-2.21 1.79-4 4-4h28c2.21 0 4 1.79 4 4v16c0 2.21-1.79 4-4 4H10c-2.21 0-4-1.79-4-4V16z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M17 28h14"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M13 21h22"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script type="module">
+  let modulePromise;
+
+  const loadModule = async (moduleUrl) => {
+    if (!moduleUrl) return false;
+    if (typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return false;
+    }
+    if (!modulePromise) {
+      modulePromise = import(moduleUrl).catch((error) => {
+        modulePromise = undefined;
+        throw error;
+      });
+    }
+    await modulePromise;
+    return true;
+  };
+
+  const hydrateContainer = async (container) => {
+    if (!(container instanceof HTMLElement)) return;
+    if (container.dataset.loaded === 'true') return;
+    const moduleUrl = container.dataset.module;
+    const animationUrl = container.dataset.src;
+    const shouldAnimate = await loadModule(moduleUrl);
+    if (!shouldAnimate || !animationUrl) return;
+    container.dataset.loaded = 'true';
+    container.innerHTML = '';
+    const element = document.createElement('dotlottie-wc');
+    element.setAttribute('src', animationUrl);
+    element.setAttribute('autoplay', '');
+    element.setAttribute('loop', '');
+    element.style.width = '100%';
+    element.style.height = '100%';
+    container.appendChild(element);
+  };
+
+  const initHeroAnimation = () => {
+    if (typeof window === 'undefined') return;
+    const containers = document.querySelectorAll('[data-hero-lottie]');
+    if (!containers.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      containers.forEach((container) => {
+        hydrateContainer(container).catch(() => {});
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const target = entry.target;
+        obs.unobserve(target);
+        hydrateContainer(target).catch(() => {});
+      });
+    }, {
+      rootMargin: '160px',
+    });
+
+    containers.forEach((container) => observer.observe(container));
+  };
+
+  const run = () => initHeroAnimation();
+  run();
+  document.addEventListener('astro:page-load', run);
+</script>
