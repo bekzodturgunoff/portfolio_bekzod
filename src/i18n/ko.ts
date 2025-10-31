@@ -5,7 +5,7 @@ const ko: I18n = {
     links: { about: '소개', skills: '기술', caseStudy: '사례 연구', work: '포트폴리오', contact: '연락처', resume: '이력서' },
   },
   hero: {
-    name: '벡조드 투르구노프',
+  name: 'Bekzod',
     titleTop: '프론트엔드 개발자',
     titleBottom: '사용자 경험에 집중하는',
     description: `비즈니스와 고객을 잇는 빠르고 의미 있는 웹사이트를 만듭니다. 서울에 거주하며 우즈베키스탄에서 왔습니다. 아이디어를 세련되고 접근성 높은 디지털 경험으로 구현하는 것을 즐깁니다.`,
@@ -83,8 +83,8 @@ const ko: I18n = {
     github: 'GitHub',
     telegram: '텔레그램',
     resume: '이력서',
-    bandName: '벡조드 투르구노프',
-    maintenance: '이 사이트는 제가 직접 만들고 유지보수합니다. 무언가 고장났다면, 아마도 제가 그런 것일 겁니다 (그리고 곧 고칠 겁니다).',
+  bandName: 'Bekzod',
+    maintenance: '사랑과 카페인, 그리고 약간의 미스터리한 오류로 만들어졌습니다. 뭔가 고장 났다면, 제가 또 하나 배운 거예요. (곧 수정할게요… 아마도요.)',
   }
 };
 

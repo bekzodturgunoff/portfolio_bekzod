@@ -5,7 +5,7 @@ const en: I18n = {
     links: { about: 'About', skills: 'Skills', caseStudy: 'Case Study', work: 'Work', contact: 'Contact', resume: 'Resume' },
   },
   hero: {
-    name: 'Bekzod Turgunov',
+  name: 'Bekzod',
   titleTop: 'Front-end Developer',
   titleBottom: 'focused on User Experience',
     description: `I build fast, meaningful websites that connect businesses with their customers. Based in Seoul, I'm originally from Uzbekistan and I love turning ideas into sleek, accessible digital experiences.`,
@@ -83,8 +83,8 @@ const en: I18n = {
     github: 'GitHub',
     telegram: 'Telegram',
     resume: 'Resume',
-    bandName: 'Bekzod Turgunov',
-    maintenance: 'This site is fully built and maintained by me. If something breaks, I probably broke it (and I’ll fix it soon).',
+  bandName: 'Bekzod',
+    maintenance: 'Built with love, caffeine, and a few mysterious errors. If it breaks, I probably learned something new. (Fix incoming… soonish.)',
   }
 };
 
