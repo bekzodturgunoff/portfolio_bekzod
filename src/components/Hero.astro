@@ -11,29 +11,29 @@ const t = getDictionary(currentLang);
 ---
 <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 
-<section class="relative overflow-hidden bg-neutral-50 dark:bg-neutral-950/70 border-b border-black/10 dark:border-white/10">
-  <div class="max-w-6xl mx-auto px-4 py-20 sm:py-24">
-    <div class="rounded-3xl border border-black/10 dark:border-white/10 bg-white/85 dark:bg-white/5 backdrop-blur-sm shadow-sm p-8 sm:p-12" data-reveal>
-      <div class="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-center">
-        <div class="space-y-8">
+<section class="relative overflow-hidden bg-white dark:bg-neutral-950/70 dark:border-b dark:border-white/10">
+  <div class="max-w-6xl mx-auto px-4 py-14 sm:py-20 lg:py-24">
+    <div class="rounded-3xl border border-black/10 dark:border-white/10 bg-white/85 dark:bg-white/5 backdrop-blur-sm shadow-sm p-6 sm:p-10 lg:p-12" data-reveal>
+      <div class="grid gap-8 lg:gap-10 xl:gap-12 lg:grid-cols-[1.15fr_0.85fr] items-center">
+        <div class="space-y-6 sm:space-y-8 lg:space-y-9">
           <div class="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
             <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/10">{t.hero.name}</span>
             <span class="hidden sm:inline text-[11px] tracking-[0.18em]">{t.hero.timezoneLabel}</span>
           </div>
 
-          <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-[0.95] space-y-2">
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-[0.95] space-y-2">
             <span class="block">{t.hero.titleTop}</span>
             <span class="block text-neutral-500 dark:text-neutral-300 font-medium">{t.hero.titleBottom}</span>
           </h1>
 
           <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed text-base sm:text-lg max-w-xl">{t.hero.description}</p>
 
-          <div class="flex flex-col sm:flex-row items-center sm:items-stretch gap-3">
-            <a href="#contact" class="btn btn-primary btn-lg w-full sm:w-auto text-center">{t.hero.buttons.contact}</a>
-            <a href="#work" class="btn btn-outline btn-lg w-full sm:w-auto text-center">{t.hero.buttons.viewWork}</a>
+          <div class="flex flex-col sm:flex-row items-center sm:items-stretch gap-2.5 sm:gap-3 lg:gap-4">
+            <a href="#contact" class="btn btn-primary btn-lg w-full sm:w-auto text-center px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3">{t.hero.buttons.contact}</a>
+            <a href="#work" class="btn btn-outline btn-lg w-full sm:w-auto text-center px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3">{t.hero.buttons.viewWork}</a>
           </div>
 
-          <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-6 border-t border-black/10 dark:border-white/10 text-[12px] uppercase tracking-[0.15em] text-neutral-500 dark:text-neutral-400">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 lg:gap-5 pt-5 sm:pt-6 lg:pt-7 border-t border-black/10 dark:border-white/10 text-[12px] uppercase tracking-[0.15em] text-neutral-500 dark:text-neutral-400">
             <span class="inline-flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> {t.hero.availability}</span>
             <span class="sm:hidden h-px w-full bg-neutral-200 dark:bg-white/10"></span>
             <span>{t.hero.location}</span>
@@ -41,7 +41,7 @@ const t = getDictionary(currentLang);
         </div>
 
         <div class="relative justify-center hidden lg:flex">
-          <div class="w-full max-w-sm lg:max-w-md aspect-square flex items-center justify-center">
+          <div class="w-full max-w-sm lg:max-w-md xl:max-w-lg aspect-square flex items-center justify-center">
             <dotlottie-wc
               src="https://lottie.host/8de0855a-9b84-455d-b883-250f6e3b974b/WEYHTlQXQh.lottie"
               style="width: 100%; height: 100%"

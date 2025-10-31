@@ -48,16 +48,16 @@ const headingRight = headingRightWords.join(' ');
 
 
   <Section id="contact" title="">
-      <h2 class="leading-[0.95] text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-10" data-reveal>
+  <h2 class="leading-[0.95] text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-7 sm:mb-9 lg:mb-11" data-reveal>
   <span class="text-neutral-300 dark:text-white/90">{headingLeft}</span>
   <span class="ml-3 text-neutral-900 dark:text-white">{headingRight}</span>
       </h2>
-      <p class="max-w-2xl text-neutral-700 dark:text-neutral-300 mb-10" data-reveal>{t.contact.intro}</p>
+      <p class="max-w-2xl text-neutral-700 dark:text-neutral-300 mb-7 sm:mb-9 lg:mb-11 text-lg" data-reveal>{t.contact.intro}</p>
 
-      <div class="grid sm:grid-cols-3 gap-3 mb-12" data-reveal>
-        <a href="tel:+8201079328573" class="btn btn-outline btn-lg text-center">{t.contact.ctas.call}</a>
-        <a href="mailto:bekzodturgunoff@gmail.com" class="btn btn-outline btn-lg text-center">{t.contact.ctas.email}</a>
-        <a href="https://t.me/bekzodturgunoff" target="_blank" rel="noreferrer" class="btn btn-outline btn-lg text-center">{t.contact.ctas.telegram}</a>
+      <div class="grid sm:grid-cols-3 gap-2.5 sm:gap-3 lg:gap-4 mb-9 sm:mb-11 lg:mb-12" data-reveal>
+        <a href="tel:+8201079328573" class="btn btn-outline btn-lg text-center px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3">{t.contact.ctas.call}</a>
+        <a href="mailto:bekzodturgunoff@gmail.com" class="btn btn-outline btn-lg text-center px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3">{t.contact.ctas.email}</a>
+        <a href="https://t.me/bekzodturgunoff" target="_blank" rel="noreferrer" class="btn btn-outline btn-lg text-center px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3">{t.contact.ctas.telegram}</a>
       </div>
 
       <ContactForm />
