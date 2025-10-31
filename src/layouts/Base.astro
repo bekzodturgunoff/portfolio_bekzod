@@ -61,12 +61,35 @@ const prefetchTargets = languageCodes
     <title>{title}</title>
     <script is:inline>
       (() => {
+        const applyTheme = () => {
+          try {
+            const stored = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const dark = stored ? stored === 'dark' : prefersDark;
+            document.documentElement.classList.toggle('dark', dark);
+            document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+          } catch {}
+        };
+
+        const handleSystemChange = () => {
+          try {
+            if (localStorage.getItem('theme')) return;
+          } catch {}
+          applyTheme();
+        };
+
         try {
-          const stored = localStorage.getItem('theme');
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          const dark = stored ? stored === 'dark' : prefersDark;
-          document.documentElement.classList.toggle('dark', dark);
+          const media = window.matchMedia('(prefers-color-scheme: dark)');
+          if (typeof media.addEventListener === 'function') {
+            media.addEventListener('change', handleSystemChange);
+          } else if (typeof media.addListener === 'function') {
+            media.addListener(handleSystemChange);
+          }
         } catch {}
+
+        applyTheme();
+        document.addEventListener('astro:after-swap', applyTheme);
+        document.addEventListener('astro:page-load', applyTheme);
       })();
     </script>
     <ViewTransitions />
@@ -84,6 +107,7 @@ const prefetchTargets = languageCodes
   // @ts-ignore
   window.__toggleTheme = () => {
     const isDark = document.documentElement.classList.toggle('dark');
+    document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
     try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch {}
     return isDark;
   };
