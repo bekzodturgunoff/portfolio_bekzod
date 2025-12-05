@@ -6,25 +6,27 @@ const ko: I18n = {
   },
   hero: {
   name: 'Bekzod',
-    titleTop: '프론트엔드 개발자',
-    titleBottom: '사용자 경험에 집중하는',
-    description: `비즈니스와 고객을 잇는 빠르고 의미 있는 웹사이트를 만듭니다. 서울에 거주하며 우즈베키스탄에서 왔습니다. 아이디어를 세련되고 접근성 높은 디지털 경험으로 구현하는 것을 즐깁니다.`,
+    titleTop: '소프트웨어 엔지니어',
+    titleBottom: '사용자 경험과 신뢰성에 집중',
+    description: `2년+ 경험의 소프트웨어 엔지니어로, React와 Astro로 빠르고 접근성 높은 제품을 만듭니다. 디자인·백엔드와 긴밀히 협업하며 JavaScript/TypeScript, Python, C 레벨 문제 해결에 익숙합니다.`,
     location: '대한민국, 서울',
     availability: '새로운 프로젝트 문의 가능',
     timezoneLabel: 'KST (GMT +9)',
     buttons: {
       contact: '연락하기',
-      viewWork: '작업 보기'
+      viewWork: '작업 보기',
+      viewCaseStudy: '케이스 스터디 보기'
     }
   },
   about: {
-    intro: `웹은 살아있고 사용하기 쉬워야 한다는 신념을 가진 프론트엔드 개발자입니다. 사람들의 삶을 더 간편하게 만드는 빠르고 접근성 높은 디자인에 집중합니다.`,
+    intro: `제품 사고와 프론트엔드 역량을 함께 갖춘 소프트웨어 엔지니어입니다. 성능, 접근성, 보안을 중시하며 매 릴리스가 매끄럽고 검증 가능하도록 만듭니다. 세종대학교 컴퓨터정보보안 전공 중이며, 보안 관점도 함께 고려합니다.`,
     basedIn: '대한민국 서울 거주',
     languagesLine: '사용 언어: 영어 (주), 러시아어, 한국어'
   },
   contact: {
     heading: `함께 일해요`,
     intro: `새로운 프로젝트, 까다로운 버그 수정, 또는 아이디어에 대해 이야기하고 싶으신가요? 언제든지 편하게 연락주세요.`,
+    availability: '24시간 이내 회신 (서울 기준).',
     ctas: { call: '전화하기', email: '이메일 보내기', telegram: '텔레그램 메시지' },
     form: {
       name: '이름',
@@ -42,16 +44,16 @@ const ko: I18n = {
   caseStudy: {
     badge: '사례 연구',
     title: 'KDSX 랜딩 페이지',
-    subtitle: '4주 만에 AI 지식 베이스 아이디어를 높은 전환율의 랜딩 페이지로 구현했습니다.',
+    subtitle: '4주 만에 복잡한 제품을 명확한 전환형 랜딩 페이지로 구현했습니다.',
     meta: [
       { label: '클라이언트', value: 'KDSX' },
-      { label: '역할', value: '제품 디자이너 · 프론트엔드 개발자' },
+      { label: '역할', value: '제품 디자이너 · 소프트웨어 엔지니어' },
       { label: '기간', value: '4주 · 2025년' },
       { label: '기술 스택', value: 'Astro, Tailwind, Vercel, Resend' }
     ],
     problem: {
       title: '도전 과제',
-      body: 'KDSX는 AI 도구를 명확하게 설명하고 사용자가 사용해 보도록 유도하는 현대적인 랜딩 페이지가 필요했습니다. 이전 버전은 구식으로 보였고, 제품 가치를 잘 보여주지 못했으며, 모바일 친화적이지 않았습니다.'
+      body: 'KDSX는 제품 가치를 명확히 설명하고 사용해 보도록 유도하는 현대적인 랜딩 페이지가 필요했습니다. 이전 버전은 구식이었고 가치 전달이 약했으며 모바일 친화적이지 않았습니다.'
     },
     research: {
       title: '수행 역할',
@@ -71,11 +73,15 @@ const ko: I18n = {
       { src: '/images/projects/before.png', alt: '재디자인 전 KDSX 랜딩 페이지 원본', caption: '재디자인 전 원본 MVP 화면 — 빽빽한 문구, 낮은 대비, 명확한 행동 유도 버튼 부재.' },
       { src: '/images/projects/kdsx.png', alt: 'KDSX 랜딩 페이지 스크린샷', caption: '재작업된 히어로 섹션, 사용 사례, 소셜 프루프를 강조하는 고해상도 데스크톱 화면.' }
     ],
-    cta: { label: '라이브 사이트 방문', href: 'https://kdsx.vercel.app' }
+    cta: { label: '라이브 사이트 방문', href: 'https://kdsx.uz' }
   },
   skills: {
     title: '사용 기술',
-    items: ['JavaScript','TypeScript','React','Astro','Tailwind','Sass']
+    groups: [
+      { title: '핵심', items: ['React','Astro','TypeScript','JavaScript','Node.js','Tailwind','Sass','HTML/CSS'] },
+      { title: '시스템', items: ['C','Assembly','Python'] },
+      { title: '도구', items: ['Git','GitHub Actions','테스팅 (Jest/Vitest)','CI/CD','접근성·성능 점검'] },
+    ]
   },
   footer: {
     reserved: '모든 권리 보유.',

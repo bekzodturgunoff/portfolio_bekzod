@@ -10,8 +10,8 @@ interface Props {
 }
 
 const { 
-  title = 'Bekzod — Front-end Developer', 
-  description = 'I build fast, meaningful websites that help businesses talk to their customers. Based in Seoul, originally from Uzbekistan.',
+  title = 'Bekzod — Software Engineer', 
+  description = 'Software engineer crafting fast, reliable web products with React, Astro, and TypeScript. Based in Seoul, collaborating end to end to ship accessible, high-performing experiences.',
   image = '/og-image.png',
   lang: propLang
 } = Astro.props;
@@ -52,7 +52,7 @@ const prefetchTargets = languageCodes
 
     <!-- Additional SEO -->
   <meta name="author" content="Bekzod" />
-    <meta name="keywords" content="front-end developer, web developer, React, Astro, Tailwind CSS, Seoul, portfolio" />
+    <meta name="keywords" content="software engineer, web developer, React, Astro, Tailwind CSS, Seoul, portfolio" />
     
     {prefetchTargets.map((href) => (
       <link rel="prefetch" href={href} as="document" />

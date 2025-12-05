@@ -3,9 +3,9 @@ const projects = [
   { 
     title: 'KDSX Landing Page', 
     year: '2025', 
-    tags: ['NEXT.JS','DESIGN','API'], 
-    href: 'https://kdsx.vercel.app',
-    description: 'Built with Next.js and sharp design — delivering a beautiful, high-converting landing experience.',
+    tags: ['ASTRO','DESIGN','FORMS'], 
+    href: 'https://kdsx.uz',
+    description: 'Built with Astro and a sharp, conversion-focused design — fast load, clean flow, and clear CTAs.',
     image: '/images/projects/kdsx.png'
   },
   { 
@@ -19,36 +19,39 @@ const projects = [
 ];
 ---
 <section class="max-w-6xl mx-auto px-4">
-  <div class="divide-y divide-neutral-200/80 dark:divide-white/10">
+  <div class="grid gap-6 md:grid-cols-2" data-reveal>
     {projects.map((p) => (
-      <a href={p.href} target="_blank" rel="noreferrer" class="block group">
-  <div class="grid grid-cols-12 items-start gap-5 sm:gap-6 lg:gap-7 py-9 sm:py-14 lg:py-18 hover:bg-black/[0.02] dark:hover:bg-white/[0.04] transition-colors" data-reveal>
-          <div class="col-span-12 md:col-span-7 lg:col-span-8">
-            <h3 class="text-2xl sm:text-[28px] font-semibold tracking-tight mb-3 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors">{p.title}</h3>
-            <p class="text-[15px] text-neutral-600 dark:text-neutral-400 mb-4 leading-relaxed">{p.description}</p>
+      <a href={p.href} target="_blank" rel="noreferrer" class="group block h-full">
+        <article class="h-full rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur-sm overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-200">
+          <div class="aspect-[16/10] overflow-hidden border-b border-black/10 dark:border-white/10 bg-gradient-to-b from-neutral-200 to-neutral-100 dark:from-white/10 dark:to-white/5">
+            <img 
+              src={p.image} 
+              alt={`${p.title} preview`}
+              class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-200"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-5 sm:p-6 flex flex-col gap-3">
+            <div class="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400">
+              <span class="font-medium text-neutral-700 dark:text-neutral-200">{p.title}</span>
+              <span>{p.year}</span>
+            </div>
+            <p class="text-[15px] text-neutral-600 dark:text-neutral-400 leading-relaxed">{p.description}</p>
             <div class="flex flex-wrap items-center gap-2">
-              {p.tags.map(t => (
+              {p.tags.map((t) => (
                 <span class="px-2.5 py-1 text-[11px] rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/10 uppercase tracking-wide">{t}</span>
               ))}
             </div>
-          </div>
-          <div class="col-span-12 md:col-span-5 lg:col-span-4">
-            <div class="flex items-center justify-between mb-3">
-              <div class="text-sm text-neutral-500 dark:text-neutral-400">{p.year}</div>
-              <svg class="w-5 h-5 text-neutral-400 dark:text-neutral-500 group-hover:translate-x-1 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </div>
-            <div class="aspect-[16/10] rounded-xl border border-black/10 dark:border-white/10 overflow-hidden bg-gradient-to-b from-neutral-200 to-neutral-100 dark:from-white/10 dark:to-white/5 group-hover:scale-[1.02] transition-transform">
-              <img 
-                src={p.image} 
-                alt={`${p.title} preview`}
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
+            <div class="inline-flex items-center gap-2 text-sm font-medium text-neutral-800 dark:text-neutral-100 mt-1">
+              <span>View project</span>
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/10 dark:border-white/15 bg-white/90 dark:bg-white/10">
+                <svg class="h-4 w-4 text-neutral-500 group-hover:text-neutral-700 dark:text-neutral-400 dark:group-hover:text-neutral-200 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
             </div>
           </div>
-        </div>
+        </article>
       </a>
     ))}
   </div>

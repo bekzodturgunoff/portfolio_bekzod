@@ -13,6 +13,7 @@ export type I18n = {
     buttons: {
       contact: string;
       viewWork: string;
+      viewCaseStudy?: string;
     };
   };
   about: {
@@ -23,6 +24,7 @@ export type I18n = {
   contact: {
     heading: string;
     intro: string;
+    availability?: string;
     ctas: { call: string; email: string; telegram: string };
     form: {
       name: string;
@@ -50,7 +52,7 @@ export type I18n = {
   };
   skills: {
     title: string;
-    items: string[];
+    groups: { title: string; items: string[] }[];
   };
   footer: {
     reserved: string;

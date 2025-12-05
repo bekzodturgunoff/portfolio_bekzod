@@ -6,25 +6,27 @@ const en: I18n = {
   },
   hero: {
   name: 'Bekzod',
-  titleTop: 'Front-end Developer',
+  titleTop: 'Software Engineer',
   titleBottom: 'focused on User Experience',
-    description: `I build fast, meaningful websites that connect businesses with their customers. Based in Seoul, I'm originally from Uzbekistan and I love turning ideas into sleek, accessible digital experiences.`,
+    description: `Software engineer with 4+ years building responsive, accessible products in React and Astro. I ship fast, reliable interfaces, collaborate across design and backend, and work comfortably in JavaScript/TypeScript, Python, and C-level problem solving.`,
     location: 'South Korea, Seoul',
     availability: 'Open for new projects',
     timezoneLabel: 'KST (GMT +9)',
     buttons: {
       contact: 'Contact Me',
-      viewWork: 'View Work'
+      viewWork: 'View Work',
+      viewCaseStudy: 'View Case Study'
     }
   },
   about: {
-    intro: `I’m a front-end developer who believes the web should feel alive and easy to use. I focus on fast, accessible design that makes people’s lives a little simpler.`,
+    intro: `I’m a software engineer who blends product thinking with frontend craft. I focus on performance, accessibility, and clear communication so every release is smooth, measurable, and genuinely helpful for users. I’m currently studying Computer Information Security at Sejong University, bringing a security-minded lens to everything I ship.`,
     basedIn: 'Based in South Korea, Seoul',
     languagesLine: 'Languages: English (primary), Russian, Korean.'
   },
   contact: {
     heading: `Let's Connect`,
     intro: `Want to build something cool, fix a tricky bug, or just talk ideas? Message me anytime — I’m around.`,
+    availability: 'Replies within 24h (Seoul).',
     ctas: { call: 'Call Me', email: 'Send an Email', telegram: 'Message on Telegram' },
     form: {
       name: 'Name',
@@ -42,16 +44,16 @@ const en: I18n = {
   caseStudy: {
     badge: 'Case Study',
     title: 'KDSX Landing Page',
-    subtitle: 'Turning an AI knowledge base concept into a high-converting launch in four weeks.',
+    subtitle: 'Turning a complex knowledge platform into a high-converting launch in four weeks.',
     meta: [
       { label: 'Client', value: 'KDSX' },
-      { label: 'Role', value: 'Product Designer · Front-end Developer' },
+      { label: 'Role', value: 'Product Designer · Software Engineer' },
       { label: 'Timeline', value: '4 weeks · 2025' },
       { label: 'Stack', value: 'Astro, Tailwind, Vercel, Resend' }
     ],
     problem: {
       title: 'The challenge',
-      body: 'KDSX needed a modern landing page that clearly explained its AI tools and encouraged users to try them. The previous version looked outdated, didn’t show product value well, and wasn’t friendly on mobile.'
+      body: 'KDSX needed a modern landing page that clearly explained its product and encouraged users to try it. The previous version looked outdated, didn’t show product value well, and wasn’t friendly on mobile.'
     },
     research: {
       title: 'What I did',
@@ -71,11 +73,15 @@ const en: I18n = {
       { src: '/images/projects/before.png', alt: 'Original KDSX landing page before redesign', caption: 'Original MVP screen before the redesign — dense copy, low contrast, and no clear call to action.' },
       { src: '/images/projects/kdsx.png', alt: 'Screenshot of the KDSX landing page', caption: 'High-fidelity desktop screen highlighting the reworked hero, use cases, and social proof.' }
     ],
-    cta: { label: 'Visit live site', href: 'https://kdsx.vercel.app' }
+    cta: { label: 'Visit live site', href: 'https://kdsx.uz' }
   },
   skills: {
     title: 'What I Work With',
-    items: ['JavaScript','TypeScript','React','Astro','Tailwind','Sass']
+    groups: [
+      { title: 'Core', items: ['React','Astro','TypeScript','JavaScript','Node.js','Tailwind','Sass','HTML/CSS'] },
+      { title: 'Systems', items: ['C','Assembly','Python'] },
+      { title: 'Tooling', items: ['Git','GitHub Actions','Testing (Jest/Vitest)','CI/CD','Accessibility & Performance Audits'] },
+    ]
   },
   footer: {
     reserved: 'All rights reserved.',
