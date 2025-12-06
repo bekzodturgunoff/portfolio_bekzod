@@ -9,7 +9,7 @@ const { lang } = Astro.props;
 const currentLang = lang || defaultLang;
 
 const entries = Object.entries(languages);
-const getPath = (code: string) => (code === defaultLang ? '/' : `/${code}`);
+const getPath = (code: string) => (code === defaultLang ? '/' : `/${code}/`);
 ---
 <div class="relative inline-flex" data-lang-switcher data-current={currentLang}>
   <button
@@ -65,6 +65,18 @@ const getPath = (code: string) => (code === defaultLang ? '/' : `/${code}`);
 
 <script is:inline>
   const initLanguageSwitcher = () => {
+    const navigateLocale = (href) => {
+      const go = () => {
+        window.location.assign(href.endsWith('/') ? href : `${href}/`);
+      };
+
+      if (document.startViewTransition) {
+        document.startViewTransition(() => go());
+      } else {
+        go();
+      }
+    };
+
     const containers = document.querySelectorAll('[data-lang-switcher]');
 
     containers.forEach((container) => {
@@ -169,8 +181,8 @@ const getPath = (code: string) => (code === defaultLang ? '/' : `/${code}`);
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
           } catch {}
 
-          if (href === window.location.pathname) return;
-          window.location.href = href;
+          if (href === window.location.pathname || `${href}/` === window.location.pathname) return;
+          navigateLocale(href);
         });
       });
 
