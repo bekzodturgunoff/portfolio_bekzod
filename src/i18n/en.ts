@@ -58,9 +58,9 @@ const en: I18n = {
     research: {
       title: 'What I did',
       bullets: [
-        'Redesigned and rebuilt the entire website from scratch to make it faster, more visual, and easier to understand.',
-        'Created custom mockups of the KDSX apps inside iMac, iPad, and iPhone frames so visitors can see how the tools actually work.',
-        'Built a simple wizard form that collects user info and gives instant access to a free trial of KDSX’s three main apps.'
+        'Rebuilt the entire website from zero — architecture, design, content, and implementation.',
+        'Designed clear, visual product mockups to demonstrate how the tools work across devices.',
+        'Implemented a simple onboarding flow to collect user info and grant instant trial access to the three main apps.'
       ]
     },
     design: {
